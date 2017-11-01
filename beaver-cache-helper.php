@@ -39,6 +39,11 @@ class FL_Cache_Buster {
 		if ( function_exists( 'sg_cachepress_purge_cache' ) ) {
 			sg_cachepress_purge_cache();
 		}
+		// wp fastest cache
+		if( class_exists( 'WpFastestCache' ) ) {
+			global $wp_fastest_cache;
+			$wp_fastest_cache->deleteCache( true );
+		}	
 		error_log( 'Cleared Caches' );
 	}
 	/**
